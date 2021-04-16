@@ -12,6 +12,28 @@ section
     background: #111;
     min-height: 100vh;
 }
+section .bannerVideo
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+section .bannerVideo video
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+}
+section .bannerVideo video.active
+{
+    opacity: 1;
+}
 .container
 {
     position: relative;
@@ -20,6 +42,17 @@ section
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
+}
+.container::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
 }
 .container header
 {
