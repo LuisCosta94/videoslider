@@ -26,7 +26,7 @@
                 </ul>
             </header>
             <div class="content">
-                <div class="bannerText">
+                <div class="bannerText" id="slideShowText">
                     <div class="active">
                         <h2>Tokyo</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae corrupti harum culpa, velit cupiditate tenetur cum esse neque magnam laudantium voluptas minima omnis ipsa quisquam quod necessitatibus, est debitis et.</p>
@@ -52,15 +52,17 @@
             </ul>
 
             <ul class="controls">
-                <li><img src="images/left.png"></li>
-                <li><img src="images/right.png"></li>
+                <li onclick="prevSlide(); prevSlideText()"><img src="images/left.png"></li>
+                <li onclick="nextSlide(); nextSlideText()"><img src="images/right.png"></li>
             </ul>
         </div>
     </section>
     
     <script>
+
+        // Para Mudar slides de Video
         const slideShow = document.getElementById('slideShow');
-        const slides = slideShow.getElementByTagName('video');
+        const slides = slideShow.getElementsByTagName('video');
         var index = 0;
 
         function nextSlide(){
@@ -70,8 +72,24 @@
         }
         function prevSlide(){
             slides[index].classList.remove('active');
-            index = (index - 1) % slides.length;
+            index = (index - 1 + slides.length) % slides.length;
             slides[index].classList.add('active');
+        }
+
+        // Para Mudar os Textos
+        const slideShowText = document.getElementById('slideShowText');
+        const slidesText = slideShowText.getElementsByTagName('div');
+        var i = 0;
+
+        function nextSlideText(){
+            slidesText[i].classList.remove('active');
+            i = (i + 1) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+        function prevSlideText(){
+            slidesText[i].classList.remove('active');
+            i = (i - 1 + slidesText.length) % slidesText.length;
+            slidesText[i].classList.add('active'); 
         }
     </script>
 </body>
