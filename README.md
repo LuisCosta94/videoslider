@@ -1,1 +1,3 @@
-# videoslider.github.io
+# Video Slider
+
+Um Site modelo para viagens.
