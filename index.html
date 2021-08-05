@@ -24,6 +24,7 @@
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
+                <span class="menuIcon" onclick="toggleMenu()"></span>
             </header>
             <div class="content">
                 <div class="bannerText" id="slideShowText">
@@ -60,7 +61,7 @@
     
     <script>
 
-        // Para Mudar slides de Video
+        // change video slides
         const slideShow = document.getElementById('slideShow');
         const slides = slideShow.getElementsByTagName('video');
         var index = 0;
@@ -76,7 +77,7 @@
             slides[index].classList.add('active');
         }
 
-        // Para Mudar os Textos
+        // change slide texts
         const slideShowText = document.getElementById('slideShowText');
         const slidesText = slideShowText.getElementsByTagName('div');
         var i = 0;
@@ -90,6 +91,13 @@
             slidesText[i].classList.remove('active');
             i = (i - 1 + slidesText.length) % slidesText.length;
             slidesText[i].classList.add('active'); 
+        }
+
+        function toggleMenu(){
+            const menuIcon = document.querySelector('.menuIcon');
+            const navbar = document.querySelector('#navbar');
+            menuIcon.classList.toggle('active');
+            navbar.classList.toggle('active');
         }
     </script>
 </body>
